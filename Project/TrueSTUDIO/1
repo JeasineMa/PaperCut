@@ -1,0 +1,84 @@
+In file included from ..//inc/All_Include.h:11:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/externs.h:33:12: warning: redundant redeclaration of 'RealSpeed' [-Wredundant-decls]
+ extern int RealSpeed[3];
+            ^
+..//inc/externs.h:17:12: note: previous declaration of 'RealSpeed' was here
+ extern int RealSpeed[3];
+            ^
+In file included from ..//inc/All_Include.h:12:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/usart1.h:12:6: warning: redundant redeclaration of 'fputc' [-Wredundant-decls]
+  int fputc(int ch, FILE *f);
+      ^
+In file included from /opt/gcc-arm-none-eabi-4_9-2015q1/arm-none-eabi/include/stdio.h:29:0,
+                 from ..//inc/usart1.h:5,
+                 from ..//inc/All_Include.h:12,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+/opt/gcc-arm-none-eabi-4_9-2015q1/arm-none-eabi/include/stdio.h:192:5: note: previous declaration of 'fputc' was here
+ int _EXFUN(fputc, (int, FILE *));
+     ^
+In file included from ..//inc/All_Include.h:13:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/delay.h:6:12: warning: redundant redeclaration of 'fac_ms' [-Wredundant-decls]
+ extern u16 fac_ms;//全局变量
+            ^
+In file included from ..//inc/All_Include.h:11:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/externs.h:8:12: note: previous declaration of 'fac_ms' was here
+ extern u16 fac_ms;
+            ^
+In file included from ..//inc/All_Include.h:13:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/delay.h:7:11: warning: redundant redeclaration of 'fac_us' [-Wredundant-decls]
+ extern u8 fac_us;//全局变量
+           ^
+In file included from ..//inc/All_Include.h:11:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/externs.h:9:11: note: previous declaration of 'fac_us' was here
+ extern u8 fac_us;
+           ^
+In file included from ..//inc/All_Include.h:16:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/myspeedcontrol.h:6:12: warning: redundant redeclaration of 'RealSpeed' [-Wredundant-decls]
+ extern int RealSpeed[3];
+            ^
+In file included from ..//inc/All_Include.h:11:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+..//inc/externs.h:33:12: note: previous declaration of 'RealSpeed' was here
+ extern int RealSpeed[3];
+            ^
+../src/TIM6_interrupt.c:16:6: warning: no previous declaration for 'calcSpeed' [-Wmissing-declarations]
+ void calcSpeed()
+      ^
+../src/TIM6_interrupt.c:39:6: warning: no previous declaration for 'TIM6_IRQHandler' [-Wmissing-declarations]
+ void TIM6_IRQHandler(void)
+      ^
+../src/TIM6_interrupt.c: In function 'TIM6_IRQHandler':
+../src/TIM6_interrupt.c:42:15: error: 'MOT1' undeclared (first use in this function)
+  MOT_SpeedPID(MOT1);
+               ^
+../src/TIM6_interrupt.c:42:15: note: each undeclared identifier is reported only once for each function it appears in
+../src/TIM6_interrupt.c:43:15: error: 'MOT2' undeclared (first use in this function)
+  MOT_SpeedPID(MOT2);
+               ^
+../src/TIM6_interrupt.c:44:15: error: 'MOT3' undeclared (first use in this function)
+  MOT_SpeedPID(MOT3);
+               ^
+In file included from ..//inc/All_Include.h:12:0,
+                 from ..//inc/TIM6_interrupt.h:4,
+                 from ../src/TIM6_interrupt.c:6:
+../src/TIM6_interrupt.c: At top level:
+..//inc/usart1.h:15:14: warning: 'NVIC_Config' declared 'static' but never defined [-Wunused-function]
+  static void NVIC_Config(void);
+              ^
+make: *** [../src/TIM6_interrupt.o] Error 1

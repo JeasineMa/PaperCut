@@ -1,0 +1,10 @@
+--
+-------- begin (mode: ROM_RUN) --------
+arm-none-eabi-gcc (GNU Tools for ARM Embedded Processors) 4.9.3 20150529 (release) [ARM/embedded-4_9-branch revision 227977]
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Compiling C: ..//src/encoder.c
+arm-none-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mthumb-interwork -I. -gdwarf-2 -DROM_RUN -Dgcc -DHSE_VALUE=8000000 -DSTM32F4XX -DUSE_STDPERIPH_DRIVER  -O0 -ffunction-sections -fdata-sections -Wall -Wpointer-arith -Wswitch -Wredundant-decls -Wreturn-type -Wshadow -Wunused -fno-builtin -I..//inc -I..//src/crypto -I..//src/thinpad -I..//src/network -I..//src/network/HTTPServer -I../../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../../Libraries/STM32F4x7_ETH_Driver/inc -I../../Libraries/CMSIS/Device/ST/STM32F4xx/Include -I../../Libraries/CMSIS/Include -I../../Utilities/Third_Party/lwip-1.4.1/src/include/lwip -I../../Utilities/Third_Party/lwip-1.4.1/src/include/ipv4 -I../../Utilities/Third_Party/lwip-1.4.1/src/include -I../../Utilities/Third_Party/lwip-1.4.1/port/STM32F4x7 -I../../Utilities/Third_Party/lwip-1.4.1/port/STM32F4x7/Standalone -I../../Utilities/Third_Party/FatFs_R0.10c -Wcast-qual -MD -MP -MF .dep/encoder.o.d -Wnested-externs  -Wimplicit  -std=gnu99 -Wmissing-declarations ..//src/encoder.c -o ..//src/encoder.o 
