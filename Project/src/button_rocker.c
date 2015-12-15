@@ -1,8 +1,8 @@
 /* 
 * @Author: jeasinema
 * @Date:   2015-12-06 22:25:48
-* @Last Modified by:   jeasinema
-* @Last Modified time: 2015-12-11 23:57:02
+* @Last Modified by:   JeasineMa
+* @Last Modified time: 2015-12-13 07:26:39
 */
 
 #include "button_rocker.h"
@@ -125,7 +125,6 @@ void ABS(int x)
 		return -x;
 }
 
-
 void Rocker_Cmd(CMD &cmd); //读取指令存入指令空间  TODO:滤波
 {
 	if(filter_flag==1)
@@ -140,7 +139,11 @@ void Rocker_Cmd(CMD &cmd); //读取指令存入指令空间  TODO:滤波
 		{
 			cmd->mode=0;   //切换为手动模式
 			cmd->insert=0;  //强制抬刀
-			cmd->DCSpeed=0;  //强制停转电机
+			cmd->DCSpeed=0;  //强制停转电机、
+
+			//TODO:清除size和route
+			memset(size , 0 ,sizeof(SIZE));
+			memset(route , 0 , )
 			cmd->speed=sqrt(x1*x1+y1*y1)/29;    
 			if(x1>0)
 				cmd->angle=atan((float)y1/x1);
@@ -153,9 +156,10 @@ void Rocker_Cmd(CMD &cmd); //读取指令存入指令空间  TODO:滤波
 			else
 				cmd->angle=0;
 		}
-
 	}
 	//TODO:sizeinput的Rocker部分
+
+	//以下为点动控制drill起降的部分
 	if(GPIO_ReadInputDataBit(GPIOC , GPIO_Pin_4))
 	{
 		Stepper_Speed(stepper3 , 30);
@@ -168,12 +172,22 @@ void Rocker_Cmd(CMD &cmd); //读取指令存入指令空间  TODO:滤波
 		Delay(0xFF);
 		Stepper_Speed(stepper3 , 0);
 	}
-
-
-
-
 }
-void Exec_Cmd(CMD &cmd);    //执行命令，底层调用cuttermove的函数
+
+void Exec_Cmd(CMD &cmd , LOCATION &self);    //执行命令，底层调用cuttermove的函数
 {
-
+	if(cmd->mode)  //自动模式
+	{
+		cmd->angle=acot((cmd->x_target-self->x),(cmd->y_target-self->y));
+		cmd->speed=50;
+	}
+		Cutter_Move_Manually(cmd->angle , cmd->speed);
 }
+
+void Update_Location(LOCATION &self)
+{
+	
+}
+
+
+
